@@ -73,8 +73,10 @@ public class LoginController {
     }
 
     /*@PreAuthorize("hasAuthority('User.Write')")*/
-    @PutMapping("/editUser")
-    public User editUser(@RequestBody EditUserRequest request){return userService.editUser(request);}
+    @PutMapping("/editUser/{id}")
+    public User editUser(@PathVariable long id,@RequestBody EditUserRequest request){
+        request.setId(id);
+        return userService.editUser(request);}
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(
             @PathVariable(value = "id") Long userId) throws ResourceNotFoundException {

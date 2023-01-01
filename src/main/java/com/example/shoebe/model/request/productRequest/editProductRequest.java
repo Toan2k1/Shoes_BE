@@ -6,7 +6,7 @@ import lombok.Data;
 public class editProductRequest {
     private Long id;
     private String name;
-    private String image;
+    private String categoryName;
     private String size;
     private String price;
     private String description;

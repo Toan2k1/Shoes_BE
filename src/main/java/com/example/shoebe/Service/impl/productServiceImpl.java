@@ -25,10 +25,10 @@ public class productServiceImpl implements productService {
 
     @Override
     public product addProduct(addProductRequest request) {
-        var categoryOptional=categoryRepository.findById(request.getCategoryId());
+        var categoryOptional=categoryRepository.findByName(request.getCategoryName());
         if(categoryOptional.isPresent()){
             var category = categoryOptional.get();
-            var newProduct = new product(request.getName(),request.getSize(),request.getPrice(),category);
+            var newProduct = new product(request.getName(), request.getCategoryName(), request.getSize(),request.getPrice(),request.getColor(),request.getDescription(),request.getQuantity(),category);
             return productRepository.save(newProduct);
         }
        return null;
@@ -40,8 +40,12 @@ public class productServiceImpl implements productService {
         if(optionalProduct.isPresent()){
             var editProduct = optionalProduct.get();
             editProduct.setName(request.getName());
+            editProduct.setCategoryName(request.getCategoryName());
             editProduct.setPrice(request.getPrice());
             editProduct.setSize(request.getSize());
+            editProduct.setDescription(request.getDescription());
+            editProduct.setColor(request.getColor());
+            editProduct.setQuantity(request.getQuantity());
             return productRepository.save(editProduct);
         }
         return null;

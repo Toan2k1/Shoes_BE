@@ -32,8 +32,9 @@ public class productController {
     List<product> getListProduct(){
         return ProductService.getListProduct();
     }
-    @PutMapping("/edit-Product")
-    product editProduct(@RequestBody editProductRequest request){
+    @PutMapping("/edit-Product/{id}")
+    product editProduct(@PathVariable long id,@RequestBody editProductRequest request){
+        request.setId(id);
         return ProductService.editProduct(request);
     }
     @DeleteMapping("/deleteProduct/{id}")

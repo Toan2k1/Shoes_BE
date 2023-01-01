@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class EditUserRequest {
-    private Long id;
-    private String username;
+    private long id;
     private String password;
+    private String username;
+    private String email;
 }

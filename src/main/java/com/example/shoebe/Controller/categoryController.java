@@ -27,8 +27,9 @@ public class categoryController {
     List<category> getListCategories(){
         return categoryService.getListCategories();
     }
-    @PutMapping("/editCategory")
-    category editCategory(@RequestBody editCategoryRequest request){
+    @PutMapping("/editCategory/{id}")
+    category editCategory(@PathVariable long id,@RequestBody editCategoryRequest request){
+        request.setId(id);
         return categoryService.editCategory(request);
     }
     @DeleteMapping("/deleteCategory/{id}")

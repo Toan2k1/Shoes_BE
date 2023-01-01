@@ -58,11 +58,12 @@ public class UserService implements UserDetailsService {
         }
         return false;
     }
-    public User editUser(EditUserRequest request) {
+    public User editUser( EditUserRequest request) {
         var optionalUser = userRepository.findById(request.getId());
         if (optionalUser.isPresent()) {
             var editUser = optionalUser.get();
             editUser.setUsername(request.getUsername());
+            editUser.setEmail(request.getEmail());
             editUser.setPassword(request.getPassword());
             return userRepository.save(editUser);
         }
