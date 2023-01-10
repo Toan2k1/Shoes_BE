@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface productRepository extends JpaRepository<product,Long> {
     List<product> findByIsDelete(boolean deleteStatus);
 
-
+    Optional<product> findByName(String name);
 
 
 }

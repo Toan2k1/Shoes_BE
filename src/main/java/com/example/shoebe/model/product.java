@@ -1,9 +1,11 @@
 package com.example.shoebe.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "`product`")
@@ -14,14 +16,15 @@ public class product {
     private Long id;
     private String name;
     private String categoryName;
-    private String image;
     private String size;
     private String price;
     private String description;
     private String quantity;
     private String color;
     private boolean isDelete;
-
+    @JsonManagedReference
+    @OneToMany(mappedBy = "product")
+    private List<ImageModel> image;
     @JsonIgnore
     @ManyToOne
     private category category;
