@@ -12,6 +12,7 @@ import com.example.shoebe.repository.categoryRepository;
 import com.example.shoebe.repository.productRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -25,8 +26,8 @@ public class productController {
 
 
     @PostMapping("/add-product")
-    product addProduct(@RequestBody addProductRequest request) {
-        return ProductService.addProduct(request);
+    product addProduct(@ModelAttribute addProductRequest request, @RequestPart("file")MultipartFile file) throws Exception {
+        return ProductService.addProduct(request,file);
     }
     @GetMapping("/get-list-product")
     List<product> getListProduct(){
@@ -40,5 +41,9 @@ public class productController {
     @DeleteMapping("/deleteProduct/{id}")
     Boolean deleteProduct(@PathVariable long id){
         return  ProductService.deleteProduct(id);
+    }
+    @GetMapping("/getProductbyId/{id}")
+    product getProductById(@PathVariable("id") long id){
+        return ProductService.getProductById(id);
     }
 }

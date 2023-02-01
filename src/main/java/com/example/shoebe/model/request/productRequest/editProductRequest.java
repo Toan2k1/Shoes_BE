@@ -8,8 +8,8 @@ public class editProductRequest {
     private String name;
     private String categoryName;
     private String size;
-    private String price;
+    private double price;
     private String description;
-    private String quantity;
+    private int quantity;
     private String color;
 }

@@ -7,9 +7,10 @@ public class addProductRequest {
     private String categoryName;
     private String name;
     private String size;
-    private String price;
+    private double price;
     private String description;
-    private String quantity;
+    private int quantity;
     private String color;
+    private String avatar;
 
 }

@@ -16,10 +16,12 @@ public class product {
     private Long id;
     private String name;
     private String categoryName;
+    private String avatar;
     private String size;
-    private String price;
+    private double price;
+    @Column(length = 5000)
     private String description;
-    private String quantity;
+    private int quantity;
     private String color;
     private boolean isDelete;
     @JsonManagedReference
@@ -33,8 +35,7 @@ public class product {
     }
 
 
-
-    public product(String name,String categoryName, String size, String price, String color, String description, String quantity, category category) {
+    public product(String categoryName, String name, String color, String size, double price, String description, String avatar, int quantity, com.example.shoebe.model.category category) {
         this.name = name;
         this.categoryName = categoryName;
         this.size = size;
@@ -43,5 +44,6 @@ public class product {
         this.color = color;
         this.description = description;
         this.quantity = quantity;
+        this.avatar=avatar;
     }
 }
