@@ -19,6 +19,7 @@ import java.io.IOException;
 
 @Slf4j
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
     public static String CURRENT_USER = "";
 
     @Autowired

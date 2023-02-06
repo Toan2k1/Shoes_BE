@@ -22,4 +22,8 @@ public class cartController {
     public List<cart> getCartDetails() {
         return cartService.getCartDetails();
     }
+    @DeleteMapping("/deleteCart/{id}")
+    Boolean deleteProduct(@PathVariable long id){
+        return  cartService.deleteCart(id);
+    }
 }

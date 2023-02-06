@@ -51,4 +51,12 @@ public class CartService {
         return cartRepository.findByUser(user);
     }
 
+    public boolean deleteCart(long id) {
+        if(cartRepository.existsById(id)){
+            cartRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }
