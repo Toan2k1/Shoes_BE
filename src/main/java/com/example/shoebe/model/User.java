@@ -19,6 +19,8 @@ public class User {
     private String password;
     private String email;
     private boolean isDelete;
+    private String mobile;
+
 
     public User() {
     }
@@ -29,6 +31,7 @@ public class User {
         this.password = password;
         this.email = email;
     }
+
 
 
 }

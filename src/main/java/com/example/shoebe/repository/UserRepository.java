@@ -11,6 +11,8 @@ import java.util.Optional;
     public interface UserRepository extends JpaRepository<User, Long> {
         User findByUsername(String username);
         User findById(String id);
+    public User findByMobile(String mobile);
+
 
     List<User> findByIsDelete(boolean deleteStatus);
 
